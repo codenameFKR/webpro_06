@@ -1,4 +1,4 @@
-### レポート作成のタスクリスト
+# レポート作成のタスクリスト
 
 - [ ] 開発者向けドキュメントの作業
   - [x] 対象とするシステムの決定 :thinking:
@@ -14,6 +14,11 @@
   - [ ] HTTPメソッドとリソース名一覧 :writing_hand:
   - [ ] データ構造 :writing_hand:
   - [ ] リソース名ごとの機能の詳細 :writing_hand:
+- [ ] プログラムの作成
+  - [ ] htmlファイル
+  - [ ] ejsファイル
+  - [ ] jsファイルs
+  - [ ] 動作確認 :writing_hand:
 - [ ] 管理者向けドキュメントの構成
   - [ ] インストールから起動までの手順確認 :computer:
   - [ ] インストール方法 :writing_hand:
@@ -25,11 +30,15 @@
   - [ ] 構成の検討 :thinking:
   - [ ] スクリーンショットの保存と整理 :computer:
   - [ ] 概要 :writing_hand:
-  - [ ] 使用できる機能 :writing_hand:
-  - [ ] 起動画面 :writing_hand:
-  - [ ] 一覧表示 :writing_hand:
-  - [ ] 詳細表示 :writing_hand:
-  - [ ] データ追加 :writing_hand:
-  - [ ] データ削除 :writing_hand:
-  - [ ] データ編集 :writing_hand:
+  - [ ] スクリーンショットをもとに機能の説明
+    - [ ] 起動画面 :writing_hand:
+    - [ ] 一覧表示 :writing_hand:
+    - [ ] 詳細表示 :writing_hand:
+    - [ ] データ追加 :writing_hand:
+    - [ ] データ削除 :writing_hand:
+    - [ ] データ編集 :writing_hand:
+- [ ] 最終確認
+  - [ ] 誤字脱字のチェック
+  - [ ] レイアウトの確認
+  - [ ] リンクや参照のチェック
 - [ ] 提出 :tada:
