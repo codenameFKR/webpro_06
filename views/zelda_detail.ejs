@@ -3,39 +3,62 @@
 
 <head>
     <meta charset="utf-8">
-    <title>ゼルダの伝説 時系列一覧</title>
+    <title>
+        時の勇者の敗北ルートの詳細
+    </title>
 </head>
 
 <body>
-    <h2>ゼルダの伝説 シリーズ分類</h2>
-
-    <ul>
-        <li>大人時代
-            <ul>
-                <% for( let row of data ) { %>
-                    <% if(row.id <=3) { %>
-                        <li>
-                            <%= row.name %>
-                        </li>
-                    <% } %>
-                <% } %>
-            </ul>
-        </li>
-
-        <li>子供時代
-            <ul>
-                <% for( let row of data ) { %>
-                    <% if(row.id >= 4) { %>
-                        <li>
-                            <%= row.name %>
-                        </li>
-                    <% } %>
-                <% } %>
-            </ul>
-        </li>
-    </ul>
-
-    <br>
+    <h2>
+        時の勇者の敗北ルートの詳細
+    </h2>
+    <table>
+        <tr>
+            <td>
+                <%= data.id %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= data.name1 %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= data.name2 %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= data.name3 %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= data.name4 %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= data.name5 %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= data.name6 %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= data.name7 %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= data.name8 %>
+            </td>
+        </tr>
+    </table>
     <a href="/zelda">駅一覧に戻る</a>
 </body>
 
