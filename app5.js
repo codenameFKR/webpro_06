@@ -221,10 +221,19 @@ app.get("/zelda", (req, res) => {
   res.render('zelda', { data: game });
 });
 
+let game2 = [
+  { id: 1, name: "風のタクト" },
+  { id: 2, name: "夢幻の砂時計" },
+  { id: 3, name: "大地の汽笛" },
+  { id: 4, name: "ムジュラの仮面" },
+  { id: 5, name: "トワイライトプリンセス" },
+  { id: 6, name: "4つの剣＋(ハイラルアドベンチャー)" },
+];
+
 //　詳細表示
 app.get("/zelda/:number", (req, res) => {
   const number = req.params.number;
-  const detail = game[number];
+  const detail = game2[number];
   res.render('zelda_detail', { id: number, data: detail });
 });
 

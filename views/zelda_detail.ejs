@@ -3,45 +3,39 @@
 
 <head>
     <meta charset="utf-8">
-    <title>
-        <%= data.name %>
-    </title>
+    <title>ゼルダの伝説 時系列一覧</title>
 </head>
 
 <body>
-    <h2>
-        <%= data.name %>の詳細
-    </h2>
-    <table>
-        <tr>
-            <th>項目</th>
-            <th>データ</th>
-        </tr>
-        <tr>
-            <td>ID</td>
-            <td>
-                <%= data.id %>
-            </td>
-        </tr>
-        <tr>
-            <td>駅名</td>
-            <td>
-                <%= data.name %>
-            </td>
-        </tr>
-        <tr>
-            <td>乗り換え線</td>
-            <td>
-                <%= data.change %>
-            </td>
-        </tr>
-        <tr>
-            <td>東京駅からの距離</td>
-            <td>
-                <%= data.distance %>
-            </td>
-        </tr>
-    </table>
+    <h2>ゼルダの伝説 シリーズ分類</h2>
+
+    <ul>
+        <li>大人時代
+            <ul>
+                <% for( let row of data ) { %>
+                    <% if(row.id <=3) { %>
+                        <li>
+                            <%= row.name %>
+                        </li>
+                    <% } %>
+                <% } %>
+            </ul>
+        </li>
+
+        <li>子供時代
+            <ul>
+                <% for( let row of data ) { %>
+                    <% if(row.id >= 4) { %>
+                        <li>
+                            <%= row.name %>
+                        </li>
+                    <% } %>
+                <% } %>
+            </ul>
+        </li>
+    </ul>
+
+    <br>
     <a href="/zelda">駅一覧に戻る</a>
 </body>
 
