@@ -3,11 +3,11 @@
 - [ ] 開発者向けドキュメントの作業
   - [x] 対象とするシステムの決定 :thinking:
   - [ ] データ集め
-  - [ ] データ構造の決定 :thinking:
+  - [x] データ構造の決定 :thinking:
   - [ ] ページ構造の検討 :thinking:
-  - [ ] ページ遷移の検討 :thinking:
+  - [x] ページ遷移の検討 :thinking:
   - [ ] HTTPメソッドとリソース名の決定
-  - [ ] ページ遷移図の作成 :writing_hand:
+  - [x] ページ遷移図の作成 :writing_hand:
   - [ ] ページ構造の決定
   - [ ] ドキュメントの構成の検討 :thinking:
   - [ ] 概要 :writing_hand:

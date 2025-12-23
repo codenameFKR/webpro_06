@@ -200,4 +200,44 @@ app.get("/keiyo2/:number", (req, res) => {
   res.render('keiyo2_detail', { data: detail });
 });
 
+// ーーーーー提出課題(キュゥべえ)ーーーーー
+let totle = [
+  {id:1, }
+];
+app.get("/kyuubey", (req, res) => {
+  // 本来ならここにDBとのやり取りが入る
+  res.render('kyuubey');
+});
+
+// ーーーーー提出課題(ゼルダ)ーーーーー
+
+// Read
+//一覧
+let game = [
+  { id: 1, name: "勇者敗北ルート" },
+  { id: 2, name: "勇者勝利ルート" },
+];
+app.get("/zelda", (req, res) => {
+  res.render('zelda', { data: game });
+});
+
+//　詳細表示
+app.get("/zelda/:number", (req, res) => {
+  const number = req.params.number;
+  const detail = game[number];
+  res.render('zelda_detail', { id: number, data: detail });
+});
+
+// Create
+// 新規登録
+
+
+// Delete
+
+// Edit
+
+// Update
+
+// ーーーーー提出課題(マジミラ)ーーーーー
+
 app.listen(8080, () => console.log("Example app listening on port 8080!"));

@@ -1,0 +1,27 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>京葉線の駅</title>
+</head>
+
+<body>
+    <h2>ゼルダの伝説時系列</h2>
+    <table>
+        <tr>
+            <th>時のオカリナ後の時系列</th>
+        </tr>
+        <% let number=0 %>
+            <% for( let row of data ) { %>
+                <tr>
+                    <td><a href="/zelda/<%= number %>">
+                            <%= row.name %>
+                        </a></td>
+                </tr>
+                <% number +=1 %>
+                    <% } %>
+    </table>
+</body>
+
+</html>
