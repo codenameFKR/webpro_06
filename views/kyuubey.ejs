@@ -1,17 +1,24 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!Doctype html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <title>京葉線の駅</title>
 </head>
 
 <body>
-    <p>どれにする?</p>
-    <p><a href="./omikuji1">omikuji1</a></p>
-    <p><a href="./omikuji2">omikuji2</a></p>
-    <p><a href="./omikuji3">omikuji3</a></p>
+    <h2>キュゥべえのセリフ</h2>
+    <table>
+        <% let number=0 %>
+            <% for( let row of data ) { %>
+                <tr>
+                    <td><a href="/kyuubey/<%= number %>">
+                            <%= row.title %>
+                        </a></td>
+                </tr>
+                <% number +=1 %>
+                    <% } %>
+    </table>
 </body>
 
 </html>

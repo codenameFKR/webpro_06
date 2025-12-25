@@ -1,0 +1,57 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        <%= data.name %>
+    </title>
+</head>
+
+<body>
+    <h2>
+        <%= data.name %>の詳細
+    </h2>
+    <table>
+        <tr>
+            <td>セリフ</td>
+            <td>
+                <%= data.text %>
+            </td>
+        </tr>
+        <tr>
+            <td>状況</td>
+            <td>
+                <%= data.situation %>
+            </td>
+        </tr>
+        <tr>
+            <td>一言コメント</td>
+            <td>
+                <%= data.comment %>
+            </td>
+        </tr>
+    </table>
+
+    <div class="actions">
+        <a href="/kyuubey/create">
+            <button>新規登録</button>
+        </a>
+
+        <a href="/kyuubey/edit/<%= id %>">
+            <button>編集</button>
+        </a>
+
+        <a href="/kyuubey/delete/<%= id %>" onclick="return confirm('本当に削除しますか？');">
+            <button style="color: red;">削除</button>
+        </a>
+    </div>
+
+    <a href="/kyuubey/<%= id %>">
+        <button type="button">詳細に戻る</button>
+    </a>
+
+    <a href="/kyuubey">駅一覧に戻る</a>
+</body>
+
+</html>
