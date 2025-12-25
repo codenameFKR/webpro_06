@@ -201,13 +201,37 @@ app.get("/keiyo2/:number", (req, res) => {
 });
 
 // ーーーーー提出課題(キュゥべえ)ーーーーー
-let totle = [
-  {id:1, }
+
+// Read
+// 一覧
+let kyuubey = [
+  { id: 1, code: "JE01", name: "東京駅" },
+  { id: 2, code: "JE07", name: "舞浜駅" },
+  { id: 3, code: "JE12", name: "新習志野駅" },
+  { id: 4, code: "JE13", name: "幕張豊砂駅" },
+  { id: 5, code: "JE14", name: "海浜幕張駅" },
+  { id: 6, code: "JE05", name: "新浦安駅" },
 ];
 app.get("/kyuubey", (req, res) => {
-  // 本来ならここにDBとのやり取りが入る
   res.render('kyuubey');
 });
+
+//　詳細表示
+app.get("/kyuubey/:number", (req, res) => {
+  const number = req.params.number;
+  const detail = station2[number];
+  res.render('kyuubey_detail', { id: number, data: detail });
+});
+
+// Create
+// 新規登録
+
+
+// Delete
+
+// Edit
+
+// Update
 
 // ーーーーー提出課題(ゼルダ)ーーーーー
 
@@ -223,24 +247,30 @@ app.get("/zelda", (req, res) => {
 
 let game2 = [
   {
-    id: 1, 
-    name1: "神々のトライフォース", 
-    name2: "夢を見る島", 
-    name3: "ふしぎの木の実", 
-    name4: "神々のトライフォース2", 
-    name5: "トライフォース3銃士",
-    name6: "知恵のかりもの",
-    name7: "ゼルダの伝説",
-    name8: "リンクの冒険"
+    id:1,
+    haiboku: [
+      "神々のトライフォース",
+      "夢を見る島",
+      "ふしぎの木の実",
+      "神々のトライフォース2",
+      "トライフォース3銃士",
+      "知恵のかりもの",
+      "ゼルダの伝説",
+      "リンクの冒険"
+    ]
 },
   {
-    id: 1,
-    name1: "風のタクト",
-    name2: "夢幻の砂時計",
-    name3: "大地の汽笛",
-    name4: "ムジュラの仮面",
-    name5: "トワイライトプリンセス",
-    name6: "4つの剣＋(ハイラルアドベンチャー)",
+    id: 2,
+    adult: [
+      "風のタクト",
+      "夢幻の砂時計",
+      "大地の汽笛"
+    ],
+    child: [
+      "ムジュラの仮面",
+      "トワイライトプリンセス",
+      "4つの剣＋(ハイラルアドベンチャー)"
+    ]
   },
 ]; 
 
@@ -248,7 +278,7 @@ let game2 = [
 app.get("/zelda/:number", (req, res) => {
   const number = req.params.number;
   const detail = game2[number];
-  res.render('zelda_detail', { id: number, data: detail });
+  res.render('zelda_detail', { data: detail });
 });
 
 // Create
@@ -262,5 +292,78 @@ app.get("/zelda/:number", (req, res) => {
 // Update
 
 // ーーーーー提出課題(マジミラ)ーーーーー
+let station5 = [
+  { id: 1, code: "JE01", name: "東京駅", change: "総武本線，中央線，etc", passengers: 403831, distance: 0 },
+  { id: 2, code: "JE02", name: "八丁堀駅", change: "日比谷線", passengers: 31071, distance: 1.2 },
+  { id: 3, code: "JE05", name: "新木場駅", change: "有楽町線，りんかい線", passengers: 67206, distance: 7.4 },
+  { id: 4, code: "JE07", name: "舞浜駅", change: "舞浜リゾートライン", passengers: 76156, distance: 12.7 },
+  { id: 5, code: "JE12", name: "新習志野駅", change: "", passengers: 11655, distance: 28.3 },
+  { id: 6, code: "JE17", name: "千葉みなと駅", change: "千葉都市モノレール", passengers: 16602, distance: 39.0 },
+  { id: 7, code: "JE18", name: "蘇我駅", change: "内房線，外房線", passengers: 31328, distance: 43.0 },
+];
+
+// 一覧
+app.get("/keiyo2", (req, res) => {
+  // 本来ならここにDBとのやり取りが入る
+  res.render('keiyo2', { data: station2 });
+});
+
+// Create
+app.get("/keiyo2/create", (req, res) => {
+  res.redirect('/public/keiyo2_new.html');
+});
+
+// Read
+app.get("/keiyo2/:number", (req, res) => {
+  // 本来ならここにDBとのやり取りが入る
+  const number = req.params.number;
+  const detail = station2[number];
+  res.render('keiyo2_detail', { id: number, data: detail });
+});
+
+// Delete
+app.get("/keiyo2/delete/:number", (req, res) => {
+  // 本来は削除の確認ページを表示する
+  // 本来は削除する番号が存在するか厳重にチェックする
+  // 本来ならここにDBとのやり取りが入る
+  station2.splice(req.params.number, 1);
+  res.redirect('/keiyo2');
+});
+
+// Create
+app.post("/keiyo2", (req, res) => {
+  // 本来ならここにDBとのやり取りが入る
+  const id = station2.length + 1;
+  const code = req.body.code;
+  const name = req.body.name;
+  const change = req.body.change;
+  const passengers = req.body.passengers;
+  const distance = req.body.distance;
+  station2.push({ id: id, code: code, name: name, change: change, passengers: passengers, distance: distance });
+  console.log(station2);
+  res.render('keiyo2', { data: station2 });
+});
+
+// Edit
+app.get("/keiyo2/edit/:number", (req, res) => {
+  // 本来ならここにDBとのやり取りが入る
+  const number = req.params.number;
+  const detail = station2[number];
+  res.render('keiyo2_edit', { id: number, data: detail });
+});
+
+// Update
+app.post("/keiyo2/update/:number", (req, res) => {
+  // 本来は変更する番号が存在するか，各項目が正しいか厳重にチェックする
+  // 本来ならここにDBとのやり取りが入る
+  station2[req.params.number].code = req.body.code;
+  station2[req.params.number].name = req.body.name;
+  station2[req.params.number].change = req.body.change;
+  station2[req.params.number].passengers = req.body.passengers;
+  station2[req.params.number].distance = req.body.distance;
+  console.log(station2);
+  res.redirect('/keiyo2');
+});
+
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));

@@ -42,6 +42,25 @@
             </td>
         </tr>
     </table>
+
+    <div class="actions">
+        <a href="/keiyo2/create">
+            <button>新規登録</button>
+        </a>
+    
+        <a href="/keiyo2/edit/<%= id %>">
+            <button>編集</button>
+        </a>
+    
+        <a href="/keiyo2/delete/<%= id %>" onclick="return confirm('本当に削除しますか？');">
+            <button style="color: red;">削除</button>
+        </a>
+    </div>
+
+    <a href="/keiyo2/<%= id %>">
+        <button type="button">詳細に戻る</button>
+    </a>
+    
     <a href="/keiyo2">駅一覧に戻る</a>
 </body>
 

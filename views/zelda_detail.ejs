@@ -13,6 +13,16 @@
         時の勇者の敗北ルートの詳細
     </h2>
     <table>
+        <% if (data.id==='1' ) { %>
+            <ul>
+                <% for(let game of data.games) { %>
+                    <li>
+                        <%= game %>
+                    </li>
+                    <% } %>
+            </ul>
+            <% } %>
+
         <tr>
             <td>
                 <%= data.id %>
