@@ -1,0 +1,63 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        <%= data.title %>
+    </title>
+</head>
+
+<body>
+    <h2>
+        <%= data.title %>
+    </h2>
+    <table>
+        <tr>
+            <td>発表年</td>
+            <td>
+                <%= data.year %>
+            </td>
+        </tr>
+        <tr>
+            <td>Lyrics & Music</td>
+            <td>
+                <%= data.lm %>
+            </td>
+        </tr>
+        <tr>
+            <td>Arrangement</td>
+            <td>
+                <%= data.arrangement %>
+            </td>
+        </tr>
+        <tr>
+            <td>Movie</td>
+            <td>
+                <%= data.movie %>
+            </td>
+        </tr>
+        <tr>
+            <td>URL</td>
+            <td>
+                <%= data.url %>
+            </td>
+        </tr>
+    </table>
+
+    <div class="actions">
+        <a href="/deco/edit/<%= id %>">
+            <button>編集</button>
+        </a>
+
+        <a href="/deco/delete/<%= id %>" onclick="return confirm('本当に削除しますか？');">
+            <button style="color: red;">削除</button>
+        </a>
+
+        <a href="/deco">
+            <button type="button">曲一覧に戻る</button>
+        </a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>フルートメーカー</title>
+</head>
+
+<body>
+    <h2>フルートメーカー比較</h2>
+    <table>
+        <% let number=0 %>
+            <% for( let row of data ) { %>
+                <!--row:順番に取り出した中身を入れている-->
+                <tr>
+                    <td>
+                        <a href="/flute/<%= number %>">
+                            <%= row.maker %>
+                        </a>
+                    </td>
+                </tr>
+                <% number +=1 %>
+                    <% } %>
+    </table>
+    <a href="/flute/create">
+        <button>新規登録</button>
+    </a>
+</body>
+
+</html>

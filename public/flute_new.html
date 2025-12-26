@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>新規登録</title>
+</head>
+<body>
+    <form action="/flute" method="POST">
+        <label for="maker">メーカー:</label>
+        <input type="text" name="maker" required><br>
+        <label for="country">国:</label>
+        <input type="text" name="country" required><br>
+        <label for="year">創始年:</label>
+        <input type="text" name="year" required><br>
+        <label for="tone">音色の特徴:</label>
+        <input type="text" name="tone"><br>
+        <input type="submit" values="登録">
+        <a href="/flute">
+            <button type="button">一覧に戻る</button>
+        </a>
+    </form>
+</body>
+</html>

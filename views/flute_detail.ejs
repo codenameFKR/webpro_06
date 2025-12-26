@@ -1,0 +1,50 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        <%= data.maker %>
+    </title>
+</head>
+
+<body>
+    <h2>
+        <%= data.maker %>の詳細
+    </h2>
+    <table>
+        <tr>
+            <td>創始年</td>
+            <td>
+                <%= data.year %>
+            </td>
+        </tr>
+        <tr>
+            <td>国</td>
+            <td>
+                <%= data.country %>
+            </td>
+        </tr>
+        <tr>
+            <td>音色の特徴</td>
+            <td>
+                <%= data.tone %>
+            </td>
+        </tr>
+    </table>
+
+    <div class="actions">
+        <a href="/flute/edit/<%= id %>">
+            <button>編集</button>
+        </a>
+
+        <a href="/flute/delete/<%= id %>" onclick="return confirm('本当に削除しますか？');">
+            <button style="color: red;">削除</button>
+        </a>
+        <a href="/flute">
+            <button type="button">メーカー一覧に戻る</button>
+        </a>
+    </div>
+</body>
+
+</html>

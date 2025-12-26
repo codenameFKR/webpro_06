@@ -1,0 +1,46 @@
+<!Doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>
+    <%= data.maker %>
+  </title>
+</head>
+
+<body>
+  <h2>
+    <%= data.maker %>の編集
+  </h2>
+  <!--ユーザーがボタンを押したら，入力されたデータをまとめて/flute/update/<%= data.id - 1%>に送ってね-->
+  <form action="/flute/update/<%= data.id - 1%>" method="POST">
+    <table>
+      <tr>
+        <th>項目</th>
+        <th>データ</th>
+      </tr>
+      <tr>
+        <td>メーカー</td>
+        <td><input type="text" name="maker" value="<%= data.maker %>"></td>
+      </tr>
+      <tr>
+        <td>国</td>
+        <td><input type="text" name="country" value="<%= data.country %>"></td>
+      </tr>
+      <tr>
+        <td>創始年</td>
+        <td><input type="text" name="year" value="<%= data.year %>"></td>
+      </tr>
+      <tr>
+        <td>音色の特徴</td>
+        <td><input type="text" name="tone" value="<%= data.tone %>"></td>
+      </tr>
+    </table>
+    <input type="submit" values="登録">
+    <a href="/flute/<%= data.id - 1%>">
+      <button type="button">詳細に戻る</button>
+    </a>
+  </form>
+</body>
+
+</html>

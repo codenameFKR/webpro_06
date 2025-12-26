@@ -1,0 +1,30 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>DECO*27人気曲ベスト10！</title>
+</head>
+
+<body>
+    <h2>DECO*27人気曲ベスト10！</h2>
+    <table>
+        <% let number=0 %>
+            <% for( let row of data ) { %>
+                <!--row:順番に取り出した中身を入れている-->
+                <tr>
+                    <td>
+                        <a href="/deco/<%= number %>">
+                            <%= row.title %>
+                        </a>
+                    </td>
+                </tr>
+                <% number +=1 %>
+                    <% } %>
+    </table>
+    <a href="/deco/create">
+        <button>新規登録</button>
+    </a>
+</body>
+
+</html>

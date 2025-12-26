@@ -1,0 +1,54 @@
+<!Doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>
+    <%= data.title %>
+  </title>
+</head>
+
+<body>
+  <h2>
+    <%= data.title %>の編集
+  </h2>
+  <!--ユーザーがボタンを押したら，入力されたデータをまとめて/deco/update/<%= data.id - 1%>に送ってね-->
+  <form action="/deco/update/<%= data.id - 1%>" method="POST">
+    <table>
+      <tr>
+        <th>項目</th>
+        <th>データ</th>
+      </tr>
+      <tr>
+        <td>曲名</td>
+        <td><input type="text" name="title" value="<%= data.title %>"></td>
+      </tr>
+      <tr>
+        <td>発表年</td>
+        <td><input type="text" name="year" value="<%= data.year %>"></td>
+      </tr>
+      <tr>
+        <td>Lyrics & Music</td>
+        <td><input type="text" name="lm" value="<%= data.lm %>"></td>
+      </tr>
+      <tr>
+        <td>Arrangement</td>
+        <td><input type="text" name="arrangement" value="<%= data.arrangement %>"></td>
+      </tr>
+      <tr>
+        <td>Movie</td>
+        <td><input type="text" name="movie" value="<%= data.movie %>"></td>
+      </tr>
+      <tr>
+        <td>URL</td>
+        <td><input type="text" name="url" value="<%= data.url %>"></td>
+      </tr>
+    </table>
+    <input type="submit" values="登録">
+    <a href="/deco/<%= data.id - 1%>">
+      <button type="button">詳細に戻る</button>
+    </a>
+  </form>
+</body>
+
+</html>

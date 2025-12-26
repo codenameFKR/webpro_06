@@ -12,7 +12,8 @@
   <h2>
     <%= data.name %>の編集
   </h2>
-  <form action="/zelda/update/<%= data.id - 1 %>" method="POST">
+  <!--ユーザーがボタンを押したら，入力されたデータをまとめて/zelda/update//zelda/update/<%= data.id - 1%>に送ってね-->
+  <form action="/zelda/update/<%= data.id - 1%>" method="POST">
     <table>
       <tr>
         <th>項目</th>

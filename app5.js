@@ -1,8 +1,14 @@
+//expressを使うよ，準備してね
 const express = require("express");
+//app(Webアプリケーション)を作るよ
 const app = express();
-
+//renderするとき，EJSという仕組みを使うよ
 app.set('view engine', 'ejs');
+//publicというフォルダの中にある画像やCSSだけは，ブラウザから自由に見てもいいよ
+//普通，セキュリティのためみれるところが制限されている
 app.use("/public", express.static(__dirname + "/public"));
+//<form method="POST">で送られてきたデータを扱いやすいように変換してくれるよ
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/hello1", (req, res) => {
   const message1 = "Hello world";
@@ -202,99 +208,74 @@ app.get("/keiyo2/:number", (req, res) => {
 
 // ーーーーー提出課題(キュゥべえ)ーーーーー
 
-let title = [
-  { id: 1, title: "夢の中で逢った、ような……" },
-  { id: 2, title: "それはとっても嬉しいなって" },
-  { id: 3, title: "もう何も恐くない" },
-  { id: 4, title: "奇跡も、魔法も、あるんだよ" },
-  { id: 5, title: "後悔なんて、あるわけない" },
-  { id: 6, title: "こんなの絶対おかしいよ" },
-  { id: 7, title: "本当の気持ちと向き合えますか?" },
-  { id: 8, title: "あたしって、ほんとバカ" },
-  { id: 9, title: "そんなの、あたしが許さない" },
-  { id: 10, title: "もう誰にも頼らない" },
-  { id: 11, title: "最後に残った道しるべ" },
-  { id: 12, title: "わたしの、最高の友達" },
+let flute = [
+  { id: 1, maker: "YAMAHA", country: "日本", year: 1887, tone: "初心者でも吹きやすく扱いやすい．" },
+  { id: 2, maker: "ムラマツ", country: "日本", year: 1923, tone: "音量が豊かで，響きの良い明るい音．" },
+  { id: 3, maker: "サンキョウ", country: "日本", year: 1968, tone: "はっきりと響く，繊細でキラキラとした音．" },
+  { id: 4, maker: "Altus", country: "日本", year: 1981, tone: "パワフルで明るい音色で，遠鳴りのする深い響き．" },
+  { id: 5, maker: "Pearl", country: "日本", year: 1968, tone: "息がスッと入るような吹奏感が特徴で，柔らかい印象の音色．" },
+  { id: 6, maker: "Miyazawa", country: "日本", year: 1969, tone: "輝かしく芯のある音色．" },
+  { id: 7, maker: "Powell", country: "アメリカ", year: 1880, tone: "パワフルな音色で，中音域が豊かに響く．" }
 ];
 
 // 一覧
-app.get("/kyuubey", (req, res) => {
-  res.render('kyuubey', { data: title });
+app.get("/flute", (req, res) => {
+  res.render('flute', { data: flute });
 });
 
 // Create
-app.get("/keiyo2/create", (req, res) => {
-  res.redirect('/public/keiyo2_new.html');
+app.get("/flute/create", (req, res) => {
+  res.redirect('/public/flute_new.html');
 });
 
-
-
 // Read
-app.get("/kyuubey/:number", (req, res) => {
+app.get("/flute/:number", (req, res) => {
   const number = req.params.number;
-  const detail = kyubeyQuotes[number];
-  res.render('kyuubey_detail', { id: number, data: detail });
+  const detail = flute[number];
+  res.render('flute_detail', { id: number, data: detail });
 });
 
 // Delete
-app.get("/keiyo2/delete/:number", (req, res) => {
+app.get("/flute/delete/:number", (req, res) => {
   // 本来は削除の確認ページを表示する
   // 本来は削除する番号が存在するか厳重にチェックする
   // 本来ならここにDBとのやり取りが入る
-  station2.splice(req.params.number, 1);
-  res.redirect('/keiyo2');
+  flute.splice(req.params.number, 1);
+  res.redirect('/flute');
 });
 
 // Create
-app.post("/keiyo2", (req, res) => {
+app.post("/flute", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
-  const id = station2.length + 1;
-  const code = req.body.code;
-  const name = req.body.name;
-  const change = req.body.change;
-  const passengers = req.body.passengers;
-  const distance = req.body.distance;
-  station2.push({ id: id, code: code, name: name, change: change, passengers: passengers, distance: distance });
-  console.log(station2);
-  res.render('keiyo2', { data: station2 });
+  const id = flute.length + 1;
+  const maker = req.body.maker;
+  const country = req.body.country;
+  const year = req.body.year;
+  const tone = req.body.tone;
+  flute.push({ id: id, maker: maker, country: country, year: year, tone: tone});
+  console.log(flute);
+  res.render('flute', { data: flute });
 });
 
 // Edit
-app.get("/keiyo2/edit/:number", (req, res) => {
+app.get("/flute/edit/:number", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
   const number = req.params.number;
-  const detail = station2[number];
-  res.render('keiyo2_edit', { id: number, data: detail });
+  const detail = flute[number];
+  res.render('flute_edit', { id: number, data: detail });
 });
 
 // Update
-app.post("/keiyo2/update/:number", (req, res) => {
+app.post("/flute/update/:number", (req, res) => {
   // 本来は変更する番号が存在するか，各項目が正しいか厳重にチェックする
   // 本来ならここにDBとのやり取りが入る
-  station2[req.params.number].code = req.body.code;
-  station2[req.params.number].name = req.body.name;
-  station2[req.params.number].change = req.body.change;
-  station2[req.params.number].passengers = req.body.passengers;
-  station2[req.params.number].distance = req.body.distance;
-  console.log(station2);
-  res.redirect('/keiyo2');
+  flute[req.params.number].maker = req.body.maker;
+  flute[req.params.number].country = req.body.country;
+  flute[req.params.number].year = req.body.year;
+  flute[req.params.number].tone = req.body.tone;
+  console.log(flute);
+  res.redirect('/flute/' + req.params.number);
 });
-
-// ーーーーー提出課題(ゼルダ)ーーーーー
-
-// Read
-//一覧
-
-
-// Create
-// 新規登録
-
-
-// Delete
-
-// Edit
-
-// Update
 
 // ーーーーー提出課題(ゼルダ)ーーーーー
 let station5 = [
@@ -368,5 +349,81 @@ app.post("/zelda/update/:number", (req, res) => {
   res.redirect('/zelda');
 });
 
+// ーーーーー提出課題(DECO*27)ーーーーー
+let deco = [
+  { id: 1, title: "ラビットホール", year: 2023, lm: "DECO*27", arrangement: "tepe", movie: "OTOIRO", url: "https://www.youtube.com/watch?v=eSW2LVbPThw" },
+  { id: 2, title: "モニタリング", year: 2024, lm: "DECO*27", arrangement: "DECO*27 & Hayato Yamamoto", movie: "OTOIRO", url: "https://www.youtube.com/watch?v=kbNdx0yqbZE" },
+  { id: 3, title: "ヴァンパイア", year: 2021, lm: "DECO*27", arrangement: "Rockwell", movie: "OTOIRO", url: "https://www.youtube.com/watch?v=e1xCOsgWG0M" },
+  { id: 4, title: "ヒバナ", year: 2017, lm: "DECO*27", arrangement: "Rockwell", movie: "八三", url: "https://www.youtube.com/watch?v=hxSg2loz3LM" },
+  { id: 5, title: "妄想感傷代償連盟", year: 2016, lm: "DECO*27", arrangement: "emon(Tes.)", movie: "檀上大空", url: "https://www.youtube.com/watch?v=8pGRdRhjX3o" },
+  { id: 6, title: "乙女解剖", year: 2019, lm: "DECO*27", arrangement: "emon(Tes.) & Rockwell", movie: "OTOIRO", url: "https://www.youtube.com/watch?v=7zwCIz-Ohn4" },
+  { id: 7, title: "ゴーストルール", year: 2016, lm: "DECO*27", arrangement: "Naoki Itai (MUSIC FOR MUSIC)", movie: "八三", url: "https://www.youtube.com/watch?v=KushW6zvazM" },
+  { id: 8, title: "テレパシ", year: 2025, lm: "DECO*27", arrangement: "tepe", movie: "OTOIRO", url: "https://www.youtube.com/watch?v=c56TpxfO9q0" },
+  { id: 9, title: "モニタリング(Best Friend Remix)", year: 2025, lm: "DECO*27", arrangement: "DECO*27 & Hayato Yamamoto", movie: "OTOIRO", url: "https://www.youtube.com/watch?v=C-CYWnZ3z8w" },
+  { id: 10, title: "アニマル", year: 2021, lm: "DECO*27", arrangement: "Rockwell", movie: "OTOIRO", url: "https://www.youtube.com/watch?v=HtBqK6xsQ9k" }
+];
+
+// 一覧
+app.get("/deco", (req, res) => {
+  res.render('deco', { data: deco });
+});
+
+// Create
+app.get("/deco/create", (req, res) => {
+  res.redirect('/public/deco_new.html');
+});
+
+// Read
+app.get("/deco/:number", (req, res) => {
+  const number = req.params.number;
+  const detail = deco[number];
+  res.render('deco_detail', { id: number, data: detail });
+});
+
+// Delete
+app.get("/deco/delete/:number", (req, res) => {
+  // 本来は削除の確認ページを表示する
+  // 本来は削除する番号が存在するか厳重にチェックする
+  // 本来ならここにDBとのやり取りが入る
+  deco.splice(req.params.number, 1);
+  res.redirect('/deco');
+});
+
+// Create
+app.post("/deco", (req, res) => {
+  // 本来ならここにDBとのやり取りが入る
+  const id = deco.length + 1;
+  const title = req.body.title;
+  const year = req.body.year;
+  const lm = req.body.lm;
+  const arrangement = req.body.arrangement;
+  const movie = req.body.movie;
+  const url = req.body.url;
+  deco.push({ id: id, title: title, year: year, lm: lm, arrangement: arrangement, movie: movie, url: url });
+  console.log(deco);
+  res.render('deco', { data: deco });
+});
+
+// Edit
+app.get("/deco/edit/:number", (req, res) => {
+  // 本来ならここにDBとのやり取りが入る
+  const number = req.params.number;
+  const detail = deco[number];
+  res.render('deco_edit', { id: number, data: detail });
+});
+
+// Update
+app.post("/deco/update/:number", (req, res) => {
+  // 本来は変更する番号が存在するか，各項目が正しいか厳重にチェックする
+  // 本来ならここにDBとのやり取りが入る
+  deco[req.params.number].title = req.body.title;
+  deco[req.params.number].year = req.body.year;
+  deco[req.params.number].lm = req.body.lm;
+  deco[req.params.number].arrangement = req.body.arrangement;
+  deco[req.params.number].movie = req.body.movie;
+  deco[req.params.number].url = req.body.url;
+  console.log(deco);
+  res.redirect('/deco/' + req.params.number);
+});
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));

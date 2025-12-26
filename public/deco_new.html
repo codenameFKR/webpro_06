@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>新規登録</title>
+</head>
+<body>
+    <form action="/deco" method="POST">
+        <label for="title">曲名:</label>
+        <input type="text" name="title" required><br>
+        <label for="year">発表年:</label>
+        <input type="text" name="year" required><br>
+        <label for="lm">Lyrics & Music:</label>
+        <input type="text" name="lm" required><br>
+        <label for="arrangement">Arrangement:</label>
+        <input type="text" name="arrangement"><br>
+        <label for="movie">Movie:</label>
+        <input type="text" name="movie" required><br>
+        <label for="url">URL:</label>
+        <input type="text" name="url" required><br>
+        <input type="submit" values="登録">
+        <a href="/deco">
+            <button type="button">一覧に戻る</button>
+        </a>
+    </form>
+</body>
+</html>
