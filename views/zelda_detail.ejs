@@ -4,71 +4,63 @@
 <head>
     <meta charset="utf-8">
     <title>
-        時の勇者の敗北ルートの詳細
+        <%= data.name %>
     </title>
 </head>
 
 <body>
     <h2>
-        時の勇者の敗北ルートの詳細
+        <%= data.name %>の詳細
     </h2>
     <table>
-        <% if (data.id==='1' ) { %>
-            <ul>
-                <% for(let game of data.games) { %>
-                    <li>
-                        <%= game %>
-                    </li>
-                    <% } %>
-            </ul>
-            <% } %>
-
         <tr>
+            <th>項目</th>
+            <th>データ</th>
+        </tr>
+        <tr>
+            <td>ID</td>
             <td>
                 <%= data.id %>
             </td>
         </tr>
         <tr>
+            <td>駅名</td>
             <td>
-                <%= data.name1 %>
+                <%= data.name %>
             </td>
         </tr>
         <tr>
+            <td>乗り換え線</td>
             <td>
-                <%= data.name2 %>
+                <%= data.change %>
             </td>
         </tr>
         <tr>
+            <td>東京駅からの距離</td>
             <td>
-                <%= data.name3 %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%= data.name4 %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%= data.name5 %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%= data.name6 %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%= data.name7 %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%= data.name8 %>
+                <%= data.distance %>
             </td>
         </tr>
     </table>
+
+    <div class="actions">
+        <a href="/zelda/create">
+            <button>新規登録</button>
+        </a>
+
+        <a href="/zelda/edit/<%= id %>">
+            <button>編集</button>
+        </a>
+
+        <a href="/zelda/delete/<%= id %>" onclick="return confirm('本当に削除しますか？');">
+            <button style="color: red;">削除</button>
+        </a>
+    </div>
+
+    <a href="/zelda/<%= id %>">
+        <button type="button">詳細に戻る</button>
+    </a>
+
     <a href="/zelda">駅一覧に戻る</a>
 </body>
 
