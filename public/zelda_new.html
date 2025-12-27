@@ -1,24 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-
 <head>
-    <meta charset="UTF-8">
-    <title>新規登録</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, userscalable=no">
+<title>新規登録｜ゼルダのソフト一覧</title>
+
+	<link rel="stylesheet" href="/public/css/style.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-    <form action="/zelda" method="POST">
-        <label for="title">タイトル:</label>
-        <input type="text" name="title" required><br>
-        <label for="year">発売年:</label>
-        <input type="text" name="year" required><br>
-        <label for="hardware">遊べるハード:</label>
-        <input type="text" name="hardware"><br>
-        <input type="submit" values="登録">
-        <a href="/zelda">
-            <button type="button">一覧に戻る</button>
-        </a>
-    </form>
+	<div id="container"> 
+		<header>
+			<!-- ロゴ -->
+			<div id="logo">
+				<h1><img src="/public/images/logo_mono.png" alt="ゼルダロゴ"></h1>
+			</div>
+		</header>
+		
+		<div id="wrapper"> 
+			<!-- タイトル -->
+			<div id="title">
+				<h2>Software Registration</h2>
+			</div>
+			<!-- 詳細表示 -->
+			<section id="main">
+				<h3>新規登録</h3>
+				<div class="sec-inner">
+				<form action="/zelda" method="POST">
+					<div class="sec-inner">
+						<dl>
+							<div class="dl-wrap">
+								<dt><label for="title">タイトル</label></dt>
+								<dd>
+									<input type="text" name="title" required>
+								</dd>
+							</div>
+							<div class="dl-wrap">
+								<dt><label for="year">発売年</label></dt>
+								<dd>
+									<input type="text" name="year" required>
+								</dd>
+							</div>
+							<div class="dl-wrap">
+								<dt><label for="hardware">遊べるハード</label></dt>
+								<dd>
+									<input type="text" name="hardware">
+								</dd>
+							</div>
+						</dl>
+					
+						<div class="btn">
+                            <input type="submit" values="登録">
+							<button type="button" onclick="location.href='/zelda'">一覧に戻る</button>
+						</div>
+					</div>
+				</form>
+				</div>
+			</section>			
+		</div>
+		<footer>
+			<!-- フッター -->
+			<div id="footer">
+				<p class="ft-txt">25G1039 Runa KAWASE</p>
+			</div>
+		</footer>
+	</div>
 </body>
-
 </html>

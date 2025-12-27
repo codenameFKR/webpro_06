@@ -1,44 +1,65 @@
-<!Doctype html>
-<html>
-
+<!doctype html>
+<html lang="ja">
 <head>
-    <meta charset="utf-8">
-    <title>
-        <%= data.title %>
-    </title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, userscalable=no">
+<title><%= data.title %>｜ゼルダのソフト一覧</title>
+
+	<link rel="stylesheet" href="/public/css/style.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-    <h2>
-        <%= data.title %>
-    </h2>
-    <table>
-        <tr>
-            <td>発売年</td>
-            <td>
-                <%= data.year %>
-            </td>
-        </tr>
-        <tr>
-            <td>遊べるハード</td>
-            <td>
-                <%= data.hardware %>
-            </td>
-        </tr>
-    </table>
-
-    <div class="actions">
-        <a href="/zelda/edit/<%= id %>">
-            <button>編集</button>
-        </a>
-
-        <a href="/zelda/delete/<%= id %>" onclick="return confirm('本当に削除しますか？');">
-            <button style="color: red;">削除</button>
-        </a>
-        <a href="/zelda">
-            <button type="button">タイトル一覧に戻る</button>
-        </a>
-    </div>
+	<div id="container"> 
+		<header>
+			<!-- ロゴ -->
+			<div id="logo">
+				<h1><img src="/public/images/logo_mono.png" alt="ゼルダロゴ"></h1>
+			</div>
+		</header>
+		
+		<div id="wrapper"> 
+			<!-- タイトル -->
+			<div id="title">
+				<h2>Software Detail</h2>
+			</div>
+			<!-- 詳細表示 -->
+			<section id="main">
+				<h3><%= data.title %></h3>
+				<div class="sec-inner">
+					<dl>
+						<div class="dl-wrap">
+							<dt>発売年</dt>
+							<dd>
+								<%= data.year %>
+							</dd>
+						</div>
+						<div class="dl-wrap">
+							<dt>遊べるハード</dt>
+							<dd>
+								<%= data.hardware %>
+							</dd>
+						</div>
+					</dl>
+                    <!--html規格でaタグの中にbuttanタグは挿入禁止．よって，buttanタグに統一-->
+					<div class="btn">
+						<button type="button" onclick="location.href='/zelda/edit/<%= id %>'">編集</button>
+						<button type="button" onclick="location.href='/zelda/delete/<%= id %>';return confirm('本当に削除しますか？');" class="delete">削除</button>
+						<button type="button" onclick="location.href='/zelda'">ソフトウェア一覧に戻る</button>
+					</div>
+				</div>
+			</section>			
+		</div>
+		<footer>
+			<!-- フッター -->
+			<div id="footer">
+				<p class="ft-txt">25G1039 Runa KAWASE</p>
+			</div>
+		</footer>
+	</div>
 </body>
-
 </html>
