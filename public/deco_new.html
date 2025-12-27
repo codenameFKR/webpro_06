@@ -1,27 +1,99 @@
-<!DOCTYPE html>
+<!Doctype html>
 <html lang="ja">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, userscalable=no">
     <title>新規登録</title>
+
+    <link rel="stylesheet" href="/public/style_deco.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Zen+Kurenaido&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <form action="/deco" method="POST">
-        <label for="title">曲名:</label>
-        <input type="text" name="title" required><br>
-        <label for="year">発表年:</label>
-        <input type="text" name="year" required><br>
-        <label for="lm">Lyrics & Music:</label>
-        <input type="text" name="lm" required><br>
-        <label for="arrangement">Arrangement:</label>
-        <input type="text" name="arrangement"><br>
-        <label for="movie">Movie:</label>
-        <input type="text" name="movie" required><br>
-        <label for="url">URL:</label>
-        <input type="text" name="url" required><br>
-        <input type="submit" values="登録">
-        <a href="/deco">
-            <button type="button">一覧に戻る</button>
-        </a>
-    </form>
+    <div id="container">
+        <header>
+            <!-- ロゴ -->
+            <div id="logo">
+                <h1><img src="/public/images/deco27.png" alt="デコロゴ"></h1>
+            </div>
+        </header>
+
+        <div id="wrapper">
+            <!-- タイトル -->
+            <div id="title">
+                <h2>曲名</h2>
+            </div>
+            <!-- 詳細表示 -->
+            <section id="main">
+                <h3>新規登録</h3>
+                <div class="sec-inner">
+                    <form action="/deco" method="POST">
+                        <div class="sec-inner">
+                            <dl>
+                                <div class="dl-wrap">
+                                    <dt><label for="title">曲名</label></dt>
+                                    <dd>
+                                        <input type="text" name="title" required>
+                                    </dd>
+                                </div>
+                                <div class="dl-wrap">
+                                    <dt><label for="year">発表年</label></dt>
+                                    <dd>
+                                        <input type="text" name="year" required>
+                                    </dd>
+                                </div>
+                                <div class="dl-wrap">
+                                    <dt><label for="lm">Lyrics & Music</label></dt>
+                                    <dd>
+                                        <input type="text" name="lm">
+                                    </dd>
+                                </div>
+                                <div class="dl-wrap">
+                                    <dt><label for="arrangement">Arrangement</label></dt>
+                                    <dd>
+                                        <input type="text" name="arrangement">
+                                    </dd>
+                                </div>
+                                <div class="dl-wrap">
+                                    <dt><label for="lm">Lyrics & Music</label></dt>
+                                    <dd>
+                                        <input type="text" name="lm">
+                                    </dd>
+                                </div>
+                                <div class="dl-wrap">
+                                    <dt><label for="movie">Movie</label></dt>
+                                    <dd>
+                                        <input type="text" name="movie">
+                                    </dd>
+                                </div>
+                                <div class="dl-wrap">
+                                    <dt><label for="url">URL</label></dt>
+                                    <dd>
+                                        <input type="text" name="url">
+                                    </dd>
+                                </div>
+                            </dl>
+
+                            <div class="btn">
+                                <input type="submit" values="登録">
+                                <button type="button" onclick="location.href='/deco'">一覧に戻る</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+        <footer>
+            <!-- フッター -->
+            <div id="footer">
+                <p class="ft-txt">25G1039 Runa KAWASE</p>
+            </div>
+        </footer>
+    </div>
 </body>
+
 </html>

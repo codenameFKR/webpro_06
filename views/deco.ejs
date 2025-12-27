@@ -1,30 +1,58 @@
 <!Doctype html>
-<html>
+<html lang="ja">
 
 <head>
     <meta charset="utf-8">
-    <title>DECO*27人気曲ベスト10！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, userscalable=no">
+    <title>DECO*27人気曲まとめ</title>
+
+    <link rel="stylesheet" href="/public/style_deco.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Zen+Kurenaido&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h2>DECO*27人気曲ベスト10！</h2>
-    <table>
-        <% let number=0 %>
-            <% for( let row of data ) { %>
-                <!--row:順番に取り出した中身を入れている-->
-                <tr>
-                    <td>
-                        <a href="/deco/<%= number %>">
-                            <%= row.title %>
-                        </a>
-                    </td>
-                </tr>
-                <% number +=1 %>
-                    <% } %>
-    </table>
-    <a href="/deco/create">
-        <button>新規登録</button>
-    </a>
+    <div id="container">
+        <header>
+            <!-- ロゴ -->
+            <div id="logo">
+                <h1><img src="/public/images/deco27.png" alt="デコロゴ"></h1>
+            </div>
+        </header>
+
+        <div id="wrapper">
+            <!-- タイトル -->
+            <div id="title">
+                <h2>DECO*27 人気曲まとめ</h2>
+            </div>
+            <!-- 一覧表示 -->
+            <section id="main">
+                <div class="sec-inner">
+                    <ul class="disp-list">
+                        <% let number=0 %>
+                            <% for( let row of data ) { %>
+                                <!--row:順番に取り出した中身を入れている-->
+                                <li><a href="/deco/<%= number %>"><span>
+                                            <%= row.title %>
+                                        </span></a></li>
+                                <% number +=1 %>
+                                    <% } %>
+                    </ul>
+                    <div class="btn">
+                        <button type="button" onclick="location.href='/deco/create'">新規登録</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer>
+            <!-- フッター -->
+            <div id="footer">
+                <p class="ft-txt">25G1039 Runa KAWASE</p>
+            </div>
+        </footer>
+    </div>
 </body>
 
 </html>

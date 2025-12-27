@@ -1,63 +1,91 @@
 <!Doctype html>
-<html>
+<html lang="ja">
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, userscalable=no">
     <title>
         <%= data.title %>
     </title>
+
+    <link rel="stylesheet" href="/public/style_deco.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Zen+Kurenaido&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h2>
-        <%= data.title %>
-    </h2>
-    <table>
-        <tr>
-            <td>発表年</td>
-            <td>
-                <%= data.year %>
-            </td>
-        </tr>
-        <tr>
-            <td>Lyrics & Music</td>
-            <td>
-                <%= data.lm %>
-            </td>
-        </tr>
-        <tr>
-            <td>Arrangement</td>
-            <td>
-                <%= data.arrangement %>
-            </td>
-        </tr>
-        <tr>
-            <td>Movie</td>
-            <td>
-                <%= data.movie %>
-            </td>
-        </tr>
-        <tr>
-            <td>URL</td>
-            <td>
-                <%= data.url %>
-            </td>
-        </tr>
-    </table>
+    <div id="container">
+        <header>
+            <!-- ロゴ -->
+            <div id="logo">
+                <h1><img src="/public/images/deco27.png" alt="デコロゴ"></h1>
+            </div>
+        </header>
 
-    <div class="actions">
-        <a href="/deco/edit/<%= id %>">
-            <button>編集</button>
-        </a>
-
-        <a href="/deco/delete/<%= id %>" onclick="return confirm('本当に削除しますか？');">
-            <button style="color: red;">削除</button>
-        </a>
-
-        <a href="/deco">
-            <button type="button">曲一覧に戻る</button>
-        </a>
+        <div id="wrapper">
+            <!-- タイトル -->
+            <div id="title">
+                <h2>曲名</h2>
+            </div>
+            <!-- 詳細表示 -->
+            <section id="main">
+                <h3>
+                    <%= data.title %>
+                </h3>
+                <div class="sec-inner">
+                    <dl>
+                        <div class="dl-wrap">
+                            <dt>発表年</dt>
+                            <dd>
+                                <%= data.year %>
+                            </dd>
+                        </div>
+                        <div class="dl-wrap">
+                            <dt>Lyrics & Music</dt>
+                            <dd>
+                                <%= data.lm %>
+                            </dd>
+                        </div>
+                        <div class="dl-wrap">
+                            <dt>Arrangement</dt>
+                            <dd>
+                                <%= data.arrangement %>
+                            </dd>
+                        </div>
+                        <div class="dl-wrap">
+                            <dt>Movie</dt>
+                            <dd>
+                                <%= data.movie %>
+                            </dd>
+                        </div>
+                        <div class="dl-wrap">
+                            <dt>URL</dt>
+                            <dd>
+                                <a href="<%= data.url %>" target="_blank"><%= data.url %></a>
+                            </dd>
+                        </div>
+                    </dl>
+                    <!--html規格でaタグの中にbuttanタグは挿入禁止．よって，buttanタグに統一-->
+                    <div class="btn">
+                        <button type="button" onclick="location.href='/deco/edit/<%= id %>'">編集</button>
+                        <button type="button"
+                            onclick="location.href='/deco/delete/<%= id %>';return confirm('本当に削除しますか？');"
+                            class="delete">削除</button>
+                        <button type="button" onclick="location.href='/deco'">曲一覧に戻る</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer>
+            <!-- フッター -->
+            <div id="footer">
+                <p class="ft-txt">25G1039 Runa KAWASE</p>
+            </div>
+        </footer>
     </div>
 </body>
 
 </html>
+

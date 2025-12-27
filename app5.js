@@ -1,3 +1,4 @@
+"use strict";
 //expressを使うよ，準備してね
 const express = require("express");
 //app(Webアプリケーション)を作るよ
@@ -9,6 +10,7 @@ app.set('view engine', 'ejs');
 app.use("/public", express.static(__dirname + "/public"));
 //<form method="POST">で送られてきたデータを扱いやすいように変換してくれるよ
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 app.get("/hello1", (req, res) => {
   const message1 = "Hello world";

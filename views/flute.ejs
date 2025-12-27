@@ -3,28 +3,54 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, userscalable=no">
     <title>フルートメーカー</title>
+
+    <link rel="stylesheet" href="/public/style_flute.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h2>フルートメーカー比較</h2>
-    <table>
-        <% let number=0 %>
-            <% for( let row of data ) { %>
-                <!--row:順番に取り出した中身を入れている-->
-                <tr>
-                    <td>
-                        <a href="/flute/<%= number %>">
-                            <%= row.maker %>
-                        </a>
-                    </td>
-                </tr>
-                <% number +=1 %>
-                    <% } %>
-    </table>
-    <a href="/flute/create">
-        <button>新規登録</button>
-    </a>
+    <div id="container">
+        <header>
+            <!-- ロゴ -->
+            <div id="logo">
+                <h1><img src="/public/images/flute.png" alt="フルートロゴ"></h1>
+            </div>
+        </header>
+
+        <div id="wrapper">
+            <!-- タイトル -->
+            <div id="title">
+                <h2>フルートメーカー比較</h2>
+            </div>
+            <!-- 一覧表示 -->
+            <section id="main">
+                <div class="sec-inner">
+                    <ul class="disp-list">
+                        <% let number=0 %>
+                        <% for( let row of data ) { %>
+                        <!--row:順番に取り出した中身を入れている-->
+                        <li><a href="/flute/<%= number %>"><%= row.maker %></a></li>
+                            <% number +=1 %>
+                        <% } %>
+                    </ul>
+                    <div class="btn">
+                        <button type="button" onclick="location.href='/flute/create'">新規登録</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer>
+            <!-- フッター -->
+            <div id="footer">
+                <p class="ft-txt">25G1039 Runa KAWASE</p>
+            </div>
+        </footer>
+    </div>
 </body>
 
 </html>

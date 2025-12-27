@@ -1,54 +1,98 @@
 <!Doctype html>
-<html>
+<html lang="ja">
 
 <head>
-  <meta charset="utf-8">
-  <title>
-    <%= data.title %>
-  </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, userscalable=no">
+    <title>
+      <%= data.title %>
+    </title>
+
+    <link rel="stylesheet" href="/public/style_deco.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Zen+Kurenaido&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <h2>
-    <%= data.title %>の編集
-  </h2>
-  <!--ユーザーがボタンを押したら，入力されたデータをまとめて/deco/update/<%= data.id - 1%>に送ってね-->
-  <form action="/deco/update/<%= data.id - 1%>" method="POST">
-    <table>
-      <tr>
-        <th>項目</th>
-        <th>データ</th>
-      </tr>
-      <tr>
-        <td>曲名</td>
-        <td><input type="text" name="title" value="<%= data.title %>"></td>
-      </tr>
-      <tr>
-        <td>発表年</td>
-        <td><input type="text" name="year" value="<%= data.year %>"></td>
-      </tr>
-      <tr>
-        <td>Lyrics & Music</td>
-        <td><input type="text" name="lm" value="<%= data.lm %>"></td>
-      </tr>
-      <tr>
-        <td>Arrangement</td>
-        <td><input type="text" name="arrangement" value="<%= data.arrangement %>"></td>
-      </tr>
-      <tr>
-        <td>Movie</td>
-        <td><input type="text" name="movie" value="<%= data.movie %>"></td>
-      </tr>
-      <tr>
-        <td>URL</td>
-        <td><input type="text" name="url" value="<%= data.url %>"></td>
-      </tr>
-    </table>
-    <input type="submit" values="登録">
-    <a href="/deco/<%= data.id - 1%>">
-      <button type="button">詳細に戻る</button>
-    </a>
-  </form>
+  <div id="container">
+    <header>
+      <!-- ロゴ -->
+      <div id="logo">
+        <h1><img src="/public/images/deco27.png" alt="デコロゴ"></h1>
+      </div>
+    </header>
+
+    <div id="wrapper">
+      <!-- タイトル -->
+      <div id="title">
+        <h2>曲名</h2>
+      </div>
+      <!-- 詳細表示 -->
+      <section id="main">
+        <h3>
+          <%= data.title %>の編集
+        </h3>
+        <div class="sec-inner">
+          <!--ユーザーがボタンを押したら，入力されたデータをまとめて/deco/update/<%= data.id %>に送ってね-->
+          <form action="/deco/update/<%= data.id - 1%>" method="POST">
+            <div class="sec-inner">
+              <dl>
+                <div class="dl-wrap">
+                  <dt>曲名</dt>
+                  <dd>
+                    <input type="text" name="title" value="<%= data.title %>">
+                  </dd>
+                </div>
+                <div class="dl-wrap">
+                  <dt>発表年</dt>
+                  <dd>
+                    <input type="text" name="year" value="<%= data.year %>">
+                  </dd>
+                </div>
+                <div class="dl-wrap">
+                  <dt>Lyrics & Music</dt>
+                  <dd>
+                    <input type="text" name="lm" value="<%= data.lm %>">
+                  </dd>
+                </div>
+                <div class="dl-wrap">
+                  <dt>Arrangement</dt>
+                  <dd>
+                    <input type="text" name="arrangement" value="<%= data.arrangement %>">
+                  </dd>
+                </div>
+                <div class="dl-wrap">
+                  <dt>Movie</dt>
+                  <dd>
+                    <input type="text" name="movie" value="<%= data.movie %>">
+                  </dd>
+                </div>
+                <div class="dl-wrap">
+                  <dt>URL</dt>
+                  <dd>
+                    <input type="text" name="url" value="<%= data.url %>">
+                  </dd>
+                </div>
+              </dl>
+
+              <div class="btn">
+                <input type="submit" values="登録">
+                <button type="button" onclick="location.href='/deco/<%= data.id - 1%>'">詳細に戻る</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <!-- フッター -->
+      <div id="footer">
+        <p class="ft-txt">25G1039 Runa KAWASE</p>
+      </div>
+    </footer>
+  </div>
 </body>
 
 </html>

@@ -1,0 +1,243 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+
+
+a:hover {
+	text-decoration: none;
+}
+
+ul,
+li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+dl,
+dt,
+dd {
+	margin: 0;
+	padding: 0;
+}
+
+@media screen and (min-width:768px) {
+
+	header,
+	footer,
+	#main {
+		width: 100%;
+		margin: 0;
+	}
+
+	section div.sec-inner {
+		max-width: 1000px;
+		margin: 50px auto;
+	}
+
+	/* ヘッダー____________________________________ */
+	header {
+		z-index: 1000;
+		position: fixed;
+		top: 0;
+	}
+
+	#logo {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: rgba(255, 255, 255, 0.5);
+		height: 50px;
+		padding: 20px;
+	}
+
+	#logo img {
+		max-height: 50px;
+		vertical-align: bottom;
+	}
+
+	/* タイトル____________________________________ */
+	#title {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 300px;
+		padding-top: 70px;
+		background: url("../images/main.jpg");
+		background-position: center;
+		box-shadow: 0px 10px 15px rgba(0, 0, 0, 1);
+		position: relative;
+	}
+
+	#title h2 {
+		font-family: "UnifrakturMaguntia", cursive;
+		font-weight: 400;
+		font-style: normal;
+
+		font-size: 5rem;
+		text-shadow: 0px 0px 8px rgba(255, 255, 255, 1);
+	}
+
+	/* 一覧____________________________________ */
+	#main {
+		background: url("../images/bg.jpg");
+		background-size: cover;
+		padding: 30px 0;
+		font-size: 1.6rem;
+
+		/* Google Fonts */
+		font-family: "Kaisei Opti", serif;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	#main>div.sec-inner {
+		background-color: #000;
+		opacity: 0.8;
+		box-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
+		border-radius: 10px;
+		padding: 45px 50px;
+	}
+
+	/* 一覧 */
+	#main ul.disp-list {
+		margin: 0 0 30px 70px;
+	}
+
+	#main ul.disp-list li {
+		margin: 0 30px 20px 0;
+	}
+
+	#main ul.disp-list li a {
+		display: block;
+		height: 50px;
+		background: #333;
+		font-weight: bold;
+		color: #fff;
+		text-decoration: none;
+		padding: 0 58px 0 25px;
+		position: relative;
+		border-radius: 30px;
+	}
+
+	#main ul.disp-list li a span {
+		line-height: 50px;
+	}
+
+	#main ul.disp-list li a:hover {
+		background: #111;
+	}
+
+	#main ul.disp-list li a::before {
+		position: absolute;
+		left: -60px;
+		content: "";
+		width: 58px;
+		height: 50px;
+		background: url("../images/triforce.png") no-repeat;
+		background-size: contain;
+	}
+
+	/* 詳細 */
+	#main>h3 {
+		text-align: center;
+		font-size: 2.2rem;
+		color: #fff;
+	}
+
+	#main dl {
+		display: flex;
+		color: #fff;
+		flex-direction: column;
+		margin-bottom: 40px;
+	}
+
+	#main dl .dl-wrap {
+		display: flex;
+		margin-bottom: 20px;
+		padding: 5px;
+		justify-content: left;
+		align-items: center;
+	}
+
+	#main dl .dl-wrap dt {
+		width: 200px;
+	}
+
+	#main dl .dl-wrap dd {
+		width: 70%;
+	}
+
+	#main dl .dl-wrap dd input {
+		background-color: transparent;
+		border: none;
+		outline: none;
+		appearance: none;
+
+		width: 100%;
+		background-color: #afa;
+		border-radius: 50px;
+		margin: 0 auto;
+		padding: 10px 20px;
+		font-size: 1.8rem;
+
+		/* Google Fonts */
+		font-family: "Kaisei Opti", serif;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	/* ボタン____________________________________ */
+	.btn {
+		display: flex;
+		justify-content: center;
+		gap: 20px;
+	}
+
+	.btn button,
+	.btn input {
+		background-color: transparent;
+		border: none;
+		outline: none;
+		appearance: none;
+		padding: 15px 30px;
+
+		background-color: #fff;
+		border-radius: 50px;
+		font-size: 1.8rem;
+		cursor: pointer;
+
+		/* Google Fonts */
+		font-family: "Kaisei Opti", serif;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	.btn button.delete {
+		background-color: #e60;
+	}
+
+	/* フッター____________________________________ */
+	#footer {
+		text-align: center;
+		padding: 30px 10px;
+		background-color: #000;
+	}
+
+	#footer .ft-txt {
+		margin: 0;
+		font-size: 1.4rem;
+		color: #fff;
+
+		/* Google Fonts */
+		font-family: "UnifrakturMaguntia", cursive;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+}

@@ -3,48 +3,70 @@
 
 <head>
     <meta charset="utf-8">
-    <title>
-        <%= data.maker %>
-    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, userscalable=no">
+    <title><%= data.maker %></title>
+
+    <link rel="stylesheet" href="/public/style_flute.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h2>
-        <%= data.maker %>の詳細
-    </h2>
-    <table>
-        <tr>
-            <td>創始年</td>
-            <td>
-                <%= data.year %>
-            </td>
-        </tr>
-        <tr>
-            <td>国</td>
-            <td>
-                <%= data.country %>
-            </td>
-        </tr>
-        <tr>
-            <td>音色の特徴</td>
-            <td>
-                <%= data.tone %>
-            </td>
-        </tr>
-    </table>
-
-    <div class="actions">
-        <a href="/flute/edit/<%= id %>">
-            <button>編集</button>
-        </a>
-
-        <a href="/flute/delete/<%= id %>" onclick="return confirm('本当に削除しますか？');">
-            <button style="color: red;">削除</button>
-        </a>
-        <a href="/flute">
-            <button type="button">メーカー一覧に戻る</button>
-        </a>
+    <div id="container">
+        <header>
+            <!-- ロゴ -->
+            <div id="logo">
+                <h1><img src="/public/images/flute.png" alt="フルートロゴ"></h1>
+            </div>
+        </header>
+        
+        <div id="wrapper">
+            <!-- タイトル -->
+            <div id="title">
+                <h2><%= data.maker %>の詳細</h2>
+            </div>
+            <!-- 詳細表示 -->
+            <section id="main">
+                <h3>
+                    <%= data.maker %>
+                </h3>
+                <div class="sec-inner">
+                    <dl>
+                        <div class="dl-wrap">
+                            <dt>創始年</dt>
+                            <dd>
+                                <%= data.year %>
+                            </dd>
+                        </div>
+                        <div class="dl-wrap">
+                            <dt>国</dt>
+                            <dd>
+                                <%= data.country %>
+                            </dd>
+                        </div>
+                        <div class="dl-wrap">
+                            <dt>音色の特徴</dt>
+                            <dd>
+                                <%= data.tone %>
+                            </dd>
+                        </div>
+                    </dl>
+                    <div class="btn">
+                        <button type="button" onclick="location.href='/flute/edit/<%= id %>'">編集</button>
+                        <button type="button" onclick="location.href='/flute/delete/<%= id %>';return confirm('本当に削除しますか？');"class="delete">削除</button>
+                        <button type="button" onclick="location.href='/flute'">ソフトウェア一覧に戻る</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer>
+            <!-- フッター -->
+            <div id="footer">
+                <p class="ft-txt">25G1039 Runa KAWASE</p>
+            </div>
+        </footer>
     </div>
 </body>
-
 </html>
