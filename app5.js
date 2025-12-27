@@ -206,7 +206,7 @@ app.get("/keiyo2/:number", (req, res) => {
   res.render('keiyo2_detail', { data: detail });
 });
 
-// ーーーーー提出課題(キュゥべえ)ーーーーー
+// ーーーーー提出課題(フルート)ーーーーー
 
 let flute = [
   { id: 1, maker: "YAMAHA", country: "日本", year: 1887, tone: "初心者でも吹きやすく扱いやすい．" },
@@ -232,6 +232,13 @@ app.get("/flute/create", (req, res) => {
 app.get("/flute/:number", (req, res) => {
   const number = req.params.number;
   const detail = flute[number];
+
+  //存在しないIDにアクセスがあった時のエラー処理
+  if (!detail) {
+    console.log("存在しないIDにアクセスがありました")
+    return res.redirect('/flute');
+  }
+
   res.render('flute_detail', { id: number, data: detail });
 });
 
@@ -254,7 +261,7 @@ app.post("/flute", (req, res) => {
   const tone = req.body.tone;
   flute.push({ id: id, maker: maker, country: country, year: year, tone: tone});
   console.log(flute);
-  res.render('flute', { data: flute });
+  res.redirect('/flute')
 });
 
 // Edit
@@ -262,6 +269,13 @@ app.get("/flute/edit/:number", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
   const number = req.params.number;
   const detail = flute[number];
+
+  //存在しないIDにアクセスがあった時のエラー処理
+  if (!detail) {
+    console.log("存在しないIDにアクセスがありました")
+    return res.redirect('/flute');
+  }
+
   res.render('flute_edit', { id: number, data: detail });
 });
 
@@ -269,6 +283,13 @@ app.get("/flute/edit/:number", (req, res) => {
 app.post("/flute/update/:number", (req, res) => {
   // 本来は変更する番号が存在するか，各項目が正しいか厳重にチェックする
   // 本来ならここにDBとのやり取りが入る
+  
+  //存在しないIDにアクセスがあった時のエラー処理
+  if (!flute[req.params.number]) {
+    console.log("存在しないIDにアクセスがありました")
+    return res.redirect('/flute');
+  }
+
   flute[req.params.number].maker = req.body.maker;
   flute[req.params.number].country = req.body.country;
   flute[req.params.number].year = req.body.year;
@@ -278,19 +299,30 @@ app.post("/flute/update/:number", (req, res) => {
 });
 
 // ーーーーー提出課題(ゼルダ)ーーーーー
-let station5 = [
-  { id: 1, code: "JE01", name: "東京駅", change: "総武本線，中央線，etc", passengers: 403831, distance: 0 },
-  { id: 2, code: "JE02", name: "八丁堀駅", change: "日比谷線", passengers: 31071, distance: 1.2 },
-  { id: 3, code: "JE05", name: "新木場駅", change: "有楽町線，りんかい線", passengers: 67206, distance: 7.4 },
-  { id: 4, code: "JE07", name: "舞浜駅", change: "舞浜リゾートライン", passengers: 76156, distance: 12.7 },
-  { id: 5, code: "JE12", name: "新習志野駅", change: "", passengers: 11655, distance: 28.3 },
-  { id: 6, code: "JE17", name: "千葉みなと駅", change: "千葉都市モノレール", passengers: 16602, distance: 39.0 },
-  { id: 7, code: "JE18", name: "蘇我駅", change: "内房線，外房線", passengers: 31328, distance: 43.0 },
+let zelda = [
+  { id: 1, title: "スカイウォードソード", year: 2011, hardware: "Wii/WiiU/Nintendo Switch/Nintendo Switch2" },
+  { id: 2, title: "ふしぎのぼうし", year: 2004, hardware: "ゲームボーイアドバンス/Nintendo Switch/Nintendo Switch2" },
+  { id: 3, title: "4つの剣", year: 2003, hardware: "ゲームボーイアドバンス/Nintendo Switch/Nintendo Switch2" },
+  { id: 4, title: "時のオカリナ", year: 1998, hardware: "NINTENDO64/ニンテンドー3DS/Nintendo Switch/Nintendo Switch2" },
+  { id: 5, title: "神々のトライフォース", year: 1991, hardware: "スーパーファミコン/Nintendo Switch/Nintendo Switch2" },
+  { id: 6, title: "夢を見る島", year: 1993, hardware: "ゲームボーイ/Nintendo Switch/Nintendo Switch2" },
+  { id: 7, title: "ふしぎの木の実", year: 2001, hardware: "ゲームボーイカラー/Nintendo Switch/Nintendo Switch2" },
+  { id: 8, title: "神々のトライフォース2", year: 2013, hardware: "ニンテンドー3DS" },
+  { id: 9, title: "トライフォース3銃士", year: 2015, hardware: "ニンテンドー3DS" },
+  { id: 10, title: "知恵のかりもの", year: 2024, hardware: "Nintendo Switch/Nintendo Switch2" },
+  { id: 11, title: "ゼルダの伝説", year: 1986, hardware: "ファミリーコンピュータ ディスクシステム/Nintendo Switch/Nintendo Switch2" },
+  { id: 12, title: "リンクの冒険", year: 1987, hardware: "ファミリーコンピュータ ディスクシステム/Nintendo Switch/Nintendo Switch2" },
+  { id: 13, title: "風のタクト", year: 2002, hardware: "ニンテンドーゲームキューブ/WiiU/Nintendo Switch2" },
+  { id: 14, title: "夢幻の砂時計", year: 2007, hardware: "ニンテンドーDS/ニンテンドー3DS" },
+  { id: 15, title: "大地の汽笛", year: 2009, hardware: "ニンテンドーDS/ニンテンドー3DS" },
+  { id: 16, title: "ムジュラの仮面", year: 2000, hardware: "NINTENDO64/ニンテンドー3DS/Nintendo Switch/Nintendo Switch2" },
+  { id: 17, title: "トワイライトプリンセス", year: 2006, hardware: "ニンテンドーゲームキューブ/Wii/WiiU" },
+  { id: 18, title: "4つの剣+(ハイラルアドベンチャー)", year: 2004, hardware: "ニンテンドーゲームキューブ/Nintendo Switch2" }
 ];
 
 // 一覧
 app.get("/zelda", (req, res) => {
-  res.render('zelda', { data: station5 });
+  res.render('zelda', { data: zelda });
 });
 
 // Create
@@ -301,7 +333,14 @@ app.get("/zelda/create", (req, res) => {
 // Read
 app.get("/zelda/:number", (req, res) => {
   const number = req.params.number;
-  const detail = station5[number];
+  const detail = zelda[number];
+
+  //存在しないIDにアクセスがあった時のエラー処理
+  if (!detail) {
+    console.log("存在しないIDにアクセスがありました")
+    return res.redirect('/zelda');
+  }
+
   res.render('zelda_detail', { id: number, data: detail });
 });
 
@@ -310,29 +349,34 @@ app.get("/zelda/delete/:number", (req, res) => {
   // 本来は削除の確認ページを表示する
   // 本来は削除する番号が存在するか厳重にチェックする
   // 本来ならここにDBとのやり取りが入る
-  station5.splice(req.params.number, 1);
+  zelda.splice(req.params.number, 1);
   res.redirect('/zelda');
 });
 
 // Create
 app.post("/zelda", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
-  const id = station5.length + 1;
-  const code = req.body.code;
-  const name = req.body.name;
-  const change = req.body.change;
-  const passengers = req.body.passengers;
-  const distance = req.body.distance;
-  station5.push({ id: id, code: code, name: name, change: change, passengers: passengers, distance: distance });
-  console.log(station5);
-  res.render('zelda', { data: station5 });
+  const id = zelda.length + 1;
+  const title = req.body.title;
+  const year = req.body.year;
+  const hardware = req.body.hardware;
+  zelda.push({ id: id, title: title, year: year, hardware: hardware });
+  console.log(zelda);
+  res.redirect('/zelda');
 });
 
 // Edit
 app.get("/zelda/edit/:number", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
   const number = req.params.number;
-  const detail = station5[number];
+  const detail = zelda[number];
+
+  //存在しないIDにアクセスがあった時のエラー処理
+  if (!detail) {
+    console.log("存在しないIDにアクセスがありました")
+    return res.redirect('/zelda');
+  }
+
   res.render('zelda_edit', { id: number, data: detail });
 });
 
@@ -340,13 +384,18 @@ app.get("/zelda/edit/:number", (req, res) => {
 app.post("/zelda/update/:number", (req, res) => {
   // 本来は変更する番号が存在するか，各項目が正しいか厳重にチェックする
   // 本来ならここにDBとのやり取りが入る
-  station5[req.params.number].code = req.body.code;
-  station5[req.params.number].name = req.body.name;
-  station5[req.params.number].change = req.body.change;
-  station5[req.params.number].passengers = req.body.passengers;
-  station5[req.params.number].distance = req.body.distance;
-  console.log(station5);
-  res.redirect('/zelda');
+
+  //存在しないIDにアクセスがあった時のエラー処理
+  if (!zelda[req.params.number]) {
+    console.log("存在しないIDにアクセスがありました")
+    return res.redirect('/zelda');
+  }
+
+  zelda[req.params.number].title = req.body.title;
+  zelda[req.params.number].year = req.body.year;
+  zelda[req.params.number].hardware = req.body.hardware;
+  console.log(zelda);
+  res.redirect('/zelda/' + req.params.number);
 });
 
 // ーーーーー提出課題(DECO*27)ーーーーー
@@ -377,6 +426,13 @@ app.get("/deco/create", (req, res) => {
 app.get("/deco/:number", (req, res) => {
   const number = req.params.number;
   const detail = deco[number];
+
+  //存在しないIDにアクセスがあった時のエラー処理
+  if (!detail) {
+    console.log("存在しないIDにアクセスがありました")
+    return res.redirect('/deco');
+  }
+
   res.render('deco_detail', { id: number, data: detail });
 });
 
@@ -401,7 +457,7 @@ app.post("/deco", (req, res) => {
   const url = req.body.url;
   deco.push({ id: id, title: title, year: year, lm: lm, arrangement: arrangement, movie: movie, url: url });
   console.log(deco);
-  res.render('deco', { data: deco });
+  res.redirect('/deco');
 });
 
 // Edit
@@ -409,6 +465,13 @@ app.get("/deco/edit/:number", (req, res) => {
   // 本来ならここにDBとのやり取りが入る
   const number = req.params.number;
   const detail = deco[number];
+
+  //存在しないIDにアクセスがあった時のエラー処理
+  if (!detail) {
+    console.log("存在しないIDにアクセスがありました")
+    return res.redirect('/deco');
+  }
+
   res.render('deco_edit', { id: number, data: detail });
 });
 
@@ -416,6 +479,13 @@ app.get("/deco/edit/:number", (req, res) => {
 app.post("/deco/update/:number", (req, res) => {
   // 本来は変更する番号が存在するか，各項目が正しいか厳重にチェックする
   // 本来ならここにDBとのやり取りが入る
+
+  //存在しないIDにアクセスがあった時のエラー処理
+  if (!deco[req.params.number]) {
+    console.log("存在しないIDにアクセスがありました")
+    return res.redirect('/deco');
+  }
+
   deco[req.params.number].title = req.body.title;
   deco[req.params.number].year = req.body.year;
   deco[req.params.number].lm = req.body.lm;

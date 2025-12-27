@@ -3,34 +3,28 @@
 
 <head>
     <meta charset="utf-8">
-    <title>京葉線の駅</title>
+    <title>ゼルダ</title>
 </head>
 
 <body>
-    <h2>京葉線の駅の詳細</h2>
+    <h2>ゼルダのソフト一覧</h2>
     <table>
-        <tr>
-            <th>ID</th>
-            <th>駅コード</th>
-            <th>駅名</th>
-        </tr>
         <% let number=0 %>
             <% for( let row of data ) { %>
                 <!--row:順番に取り出した中身を入れている-->
                 <tr>
                     <td>
-                        <%= row.id %>
+                        <a href="/zelda/<%= number %>">
+                            <%= row.title %>
+                        </a>
                     </td>
-                    <td>
-                        <%= row.code %>
-                    </td>
-                    <td><a href="/zelda/<%= number %>">
-                            <%= row.name %>
-                        </a></td>
                 </tr>
                 <% number +=1 %>
                     <% } %>
     </table>
+    <a href="/zelda/create">
+        <button>新規登録</button>
+    </a>
 </body>
 
 </html>

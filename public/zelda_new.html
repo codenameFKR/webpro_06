@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
-    <title>じゃんけん</title>
+    <title>新規登録</title>
 </head>
+
 <body>
     <form action="/zelda" method="POST">
-        <input type="text" name="code" required>
-        <label for="code">code:</label><br>
-        <input type="text" name="name" required>
-        <label for="name">name:</label><br>
-        <input type="text" name="change">
-        <label for="change">change:</label><br>
-        <input type="text" name="passengers" required>
-        <label for="passengers">passengers:</label><br>
-        <input type="text" name="distance" required>
-        <label for="distance">distance:</label><br>
+        <label for="title">タイトル:</label>
+        <input type="text" name="title" required><br>
+        <label for="year">発売年:</label>
+        <input type="text" name="year" required><br>
+        <label for="hardware">遊べるハード:</label>
+        <input type="text" name="hardware"><br>
         <input type="submit" values="登録">
-        <a href="/zelda/<%= id %>">
-            <button type="button">詳細に戻る</button>
+        <a href="/zelda">
+            <button type="button">一覧に戻る</button>
         </a>
     </form>
 </body>
+
 </html>

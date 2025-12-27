@@ -4,15 +4,15 @@
 <head>
   <meta charset="utf-8">
   <title>
-    <%= data.name %>
+    <%= data.title %>
   </title>
 </head>
 
 <body>
   <h2>
-    <%= data.name %>の編集
+    <%= data.title %>の編集
   </h2>
-  <!--ユーザーがボタンを押したら，入力されたデータをまとめて/zelda/update//zelda/update/<%= data.id - 1%>に送ってね-->
+  <!--ユーザーがボタンを押したら，入力されたデータをまとめて/zelda/update/<%= data.id %>に送ってね-->
   <form action="/zelda/update/<%= data.id - 1%>" method="POST">
     <table>
       <tr>
@@ -20,29 +20,23 @@
         <th>データ</th>
       </tr>
       <tr>
-        <td>ID</td>
-        <td><input type="text" name="code" value="<%= data.id %>"></td>
+        <td>タイトル</td>
+        <td><input type="text" name="title" value="<%= data.title %>"></td>
       </tr>
       <tr>
-        <td>駅名</td>
-        <td><input type="text" name="name" value="<%= data.name %>"></td>
+        <td>発売年</td>
+        <td><input type="text" name="year" value="<%= data.year %>"></td>
       </tr>
       <tr>
-        <td>乗り換え線</td>
-        <td><input type="text" name="change" value="<%= data.change %>"></td>
-      </tr>
-      <tr>
-        <td>乗降客数</td>
-        <td><input type="text" name="passengers" value="<%= data.passengers %>"></td>
-      </tr>
-      <tr>
-        <td>東京駅からの距離</td>
-        <td><input type="text" name="distance" value="<%= data.distance %>"></td>
+        <td>遊べるハード</td>
+        <td><input type="text" name="hardware" value="<%= data.hardware %>"></td>
       </tr>
     </table>
     <input type="submit" values="登録">
+    <a href="/zelda/<%= data.id - 1%>">
+      <button type="button">詳細に戻る</button>
+    </a>
   </form>
-  <a href="/zelda">駅一覧に戻る</a>
 </body>
 
 </html>

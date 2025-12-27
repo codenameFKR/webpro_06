@@ -4,50 +4,30 @@
 <head>
     <meta charset="utf-8">
     <title>
-        <%= data.name %>
+        <%= data.title %>
     </title>
 </head>
 
 <body>
     <h2>
-        <%= data.name %>の詳細
+        <%= data.title %>
     </h2>
     <table>
         <tr>
-            <th>項目</th>
-            <th>データ</th>
-        </tr>
-        <tr>
-            <td>ID</td>
+            <td>発売年</td>
             <td>
-                <%= data.id %>
+                <%= data.year %>
             </td>
         </tr>
         <tr>
-            <td>駅名</td>
+            <td>遊べるハード</td>
             <td>
-                <%= data.name %>
-            </td>
-        </tr>
-        <tr>
-            <td>乗り換え線</td>
-            <td>
-                <%= data.change %>
-            </td>
-        </tr>
-        <tr>
-            <td>東京駅からの距離</td>
-            <td>
-                <%= data.distance %>
+                <%= data.hardware %>
             </td>
         </tr>
     </table>
 
     <div class="actions">
-        <a href="/zelda/create">
-            <button>新規登録</button>
-        </a>
-
         <a href="/zelda/edit/<%= id %>">
             <button>編集</button>
         </a>
@@ -55,9 +35,10 @@
         <a href="/zelda/delete/<%= id %>" onclick="return confirm('本当に削除しますか？');">
             <button style="color: red;">削除</button>
         </a>
+        <a href="/zelda">
+            <button type="button">タイトル一覧に戻る</button>
+        </a>
     </div>
-
-    <a href="/zelda">駅一覧に戻る</a>
 </body>
 
 </html>

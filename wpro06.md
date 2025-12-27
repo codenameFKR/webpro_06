@@ -41,6 +41,7 @@ entry --> /omikuji3:omikuji3
 #### データ登録画面にリダイレクトする
 ```mermaid
 stateDiagram-v2
+
     [*] --> /public/keiyo_add.html
     /public/keiyo_add.html --> /keiyo_add
     /keiyo_add --> /public/keiyo_add.html:リダイレクト
