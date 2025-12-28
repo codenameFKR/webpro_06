@@ -1,9 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
 
-body {
-	margin: 0;
-	padding: 0;
+* {
+	margin: 0px;
+	padding: 0px;
 }
 
 a:hover {
@@ -13,246 +13,234 @@ a:hover {
 ul,
 li {
 	list-style: none;
-	margin: 0;
-	padding: 0;
 }
 
-dl,
-dt,
-dd {
-	margin: 0;
-	padding: 0;
+header,
+footer,
+#main {
+	width: 100%;
+	margin: 0px;
 }
 
-@media screen and (min-width:768px) {
-
-	header,
-	footer,
-	#main {
-		width: 100%;
-		margin: 0;
-	}
-
-	section div.sec-inner {
-		max-width: 1000px;
-		margin: 50px auto;
-	}
-
-	/* ヘッダー____________________________________ */
-	header {
-		z-index: 1000;
-		position: fixed;
-		top: 0;
-	}
-
-	#logo {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background: rgba(255, 255, 255, 0.5);
-		height: 50px;
-		padding: 20px;
-	}
-
-	#logo img {
-		max-height: 50px;
-		vertical-align: bottom;
-	}
-
-	/* タイトル____________________________________ */
-	#title {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 300px;
-		padding-top: 70px;
-		background: #ff88e7;
-		background-position: center;
-	}
-
-	#title h2 {
-		font-family: "Kiwi Maru", serif;
-		font-weight: 400;
-		font-style: normal;
-		
-		font-size: 5rem;
-		background: #FFF;
-		padding: 20px 50px;
-		border-radius: 10px;
+section div.sec-inner {
+	max-width: 1000px;
+	margin: 50px auto;
 }
 
-	/* 一覧____________________________________ */
-	#main {
-		background-image: repeating-linear-gradient(90deg, #57e8df 0 4.8%, transparent 4.8% 9.6%);
-		background-size: cover;
-		padding: 30px 0;
-		font-size: 1.6rem;
+/* ヘッダー____________________________________ */
+header {
+	z-index: 1000;
+	position: fixed;
+	top: 0px;
+}
 
-		/* Google Fonts */
-		font-family: "Zen Kurenaido", sans-serif;
-		font-weight: 400;
-		font-style: normal;
-	}
+#logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.5);
+	height: 50px;
+	padding: 20px;
+}
 
-	#main>div.sec-inner {
-		background-color: #FFF;
-		border-radius: 10px;
-		padding: 45px 50px;
-	}
+#logo img {
+	max-height: 50px;
+	vertical-align: bottom;
+}
 
-	/* 一覧 */
-	#main ul.disp-list {
-		margin: 0 0 30px 70px;
-	}
+/* タイトル____________________________________ */
+#title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 300px;
+	padding-top: 70px;
+	background: #ff88e7;
+}
 
-	#main ul.disp-list li {
-		margin: 0 30px 20px 0;
-	}
+#title h2 {
+	/* Google Fonts */
+	font-family: "Kiwi Maru", serif;
+	font-weight: 400;
+	font-style: normal;
+	
+	font-size: 5rem;
+	background: #FFF;
+	padding: 20px 50px;
+	border-radius: 10px;
+}
 
-	#main ul.disp-list li a {
-		display: block;
-		height: 50px;
-		background: #333;
-		font-weight: bold;
-		color: #fff;
-		text-decoration: none;
-		padding: 0 58px 0 25px;
-		position: relative;
-		border-radius: 30px;
-	}
+/* 一覧____________________________________ */
+#main {
+	background-image: repeating-linear-gradient(90deg, #57e8df 0 4.8%, transparent 4.8% 9.6%);
+	padding: 30px 0px;
+	font-size: 1.6rem;
 
-	#main ul.disp-list li a span {
-		line-height: 50px;
-	}
+	/* Google Fonts */
+	font-family: "Zen Kurenaido", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
 
-	#main ul.disp-list li a:hover {
-		background: #111;
-	}
+#main div.sec-inner {
+	background-color: #FFF;
+	border-radius: 10px;
+	padding: 45px 50px;
+}
 
-	#main ul.disp-list li a::before {
-		position: absolute;
-		left: -60px;
-		content: "";
-		width: 58px;
-		height: 50px;
-		background: url("../images/deco27.png") no-repeat;
-		background-size: contain;
-	}
+/* 一覧 */
+#main ul.disp-list {
+	margin: 0px 0px 30px 70px;
+}
 
-	/* 詳細 */
-	#main>h3 {
-		text-align: center;
-		font-size: 2.2rem;
-		color: #000;
-	}
+#main ul.disp-list li {
+	margin: 0px 30px 20px 0px;
+}
 
-	#main dl {
-		display: flex;
-		color: #000;
-		flex-direction: column;
-		margin-bottom: 40px;
-	}
+#main ul.disp-list li a {
+	display: block;
+	height: 50px;
+	background: #333;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	padding: 0px 58px 0px 25px;
+	position: relative;
+	border-radius: 30px;
+}
 
-	#main dl .dl-wrap {
-		display: flex;
-		margin-bottom: 20px;
-		padding: 5px;
-		justify-content: left;
-		align-items: center;
-	}
+#main ul.disp-list li a span {
+	line-height: 50px;
+}
 
-	#main dl .dl-wrap dt {
-		width: 250px;
-		background-color: #333;
-		color: #fff;
-		text-align: center;
-		padding: 5px;
-		margin-right: 20px;
-		border-radius: 5px;
+#main ul.disp-list li a:hover {
+	background: #111;
+}
 
-		font-family: "Kiwi Maru", serif;
-		font-weight: 400;
-		font-style: normal;
-	}
+#main ul.disp-list li a::before {
+	position: absolute;
+	left: -60px;
+	content: "";
+	width: 58px;
+	height: 50px;
+	background: url("../images/deco27.png") no-repeat;
+	background-size: contain;
+}
 
-	#main dl .dl-wrap dd {
-		width: 70%;
+/* 詳細 */
+#main h3 {
+	text-align: center;
+	font-size: 2.2rem;
+	color: #000;
+}
 
-		font-family: "Kiwi Maru", serif;
-		font-weight: 400;
-		font-style: normal;
-	}
+#main dl {
+	display: flex;
+	color: #000;
+	flex-direction: column;
+	margin-bottom: 40px;
+}
 
-	#main dl .dl-wrap dd a{
-		color: #57e8df;
-		width: 70%;
-	}
+#main dl .dl-wrap {
+	display: flex;
+	margin-bottom: 20px;
+	padding: 5px;
+	justify-content: left;
+	align-items: center;
+}
 
-	#main dl .dl-wrap dd input {
-		background-color: transparent;
-		border: none;
-		outline: none;
-		appearance: none;
+#main dl .dl-wrap dt {
+	width: 250px;
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	padding: 5px;
+	margin-right: 20px;
+	border-radius: 5px;
 
-		width: 100%;
-		background-color: #f6fb4b;
-		border-radius: 50px;
-		margin: 0 auto;
-		padding: 10px 20px;
-		font-size: 1.8rem;
+	/* Google Fonts */
+	font-family: "Kiwi Maru", serif;
+	font-weight: 400;
+	font-style: normal;
+}
 
-		/* Google Fonts */
-		font-family: "Kaisei Opti", serif;
-		font-weight: 400;
-		font-style: normal;
-	}
+#main dl .dl-wrap dd {
+	width: 70%;
 
-	/* ボタン____________________________________ */
-	.btn {
-		display: flex;
-		justify-content: center;
-		gap: 20px;
-	}
+	/* Google Fonts */
+	font-family: "Kiwi Maru", serif;
+	font-weight: 400;
+	font-style: normal;
+}
 
-	.btn button,
-	.btn input {
-		background-color: transparent;
-		border: none;
-		outline: none;
-		appearance: none;
-		padding: 15px 30px;
+#main dl .dl-wrap dd a{
+	color: #57e8df;
+	width: 70%;
+}
 
-		background-color: #f6fb4b;
-		border-radius: 50px;
-		font-size: 1.8rem;
-		cursor: pointer;
+#main dl .dl-wrap dd input {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	appearance: none;
 
-		/* Google Fonts */
-		font-family: "Kiwi Maru", serif;
-		font-weight: 400;
-		font-style: normal;	
-	}
+	width: 100%;
+	background-color: #f6fb4b;
+	border-radius: 50px;
+	margin: 0px auto;
+	padding: 10px 20px;
+	font-size: 1.8rem;
 
-	.btn button.delete {
-		background-color: #e60;
-	}
+	/* Google Fonts */
+	font-family: "Kaisei Opti", serif;
+	font-weight: 400;
+	font-style: normal;
+}
 
-	/* フッター____________________________________ */
-	#footer {
-		text-align: center;
-		padding: 30px 10px;
-		background-color: #ff88e7;
-	}
+/* ボタン____________________________________ */
+.btn {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
 
-	#footer .ft-txt {
-		margin: 0;
-		font-size: 1.4rem;
-		color: #000;
+.btn button,
+.btn input {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	appearance: none;
+	padding: 15px 30px;
 
-		/* Google Fonts */
-		font-family: "Kiwi Maru", serif;
-		font-weight: 400;
-		font-style: normal;
-	}
+	background-color: #f6fb4b;
+	border-radius: 50px;
+	font-size: 1.8rem;
+	cursor: pointer;
 
+	/* Google Fonts */
+	font-family: "Kiwi Maru", serif;
+	font-weight: 400;
+	font-style: normal;	
+}
+
+.btn button.delete {
+	background-color: #e60;
+}
+
+/* フッター____________________________________ */
+#footer {
+	text-align: center;
+	padding: 30px 10px;
+	background-color: #ff88e7;
+}
+
+#footer .ft-txt {
+	margin: 0px;
+	font-size: 1.4rem;
+	color: #000;
+
+	/* Google Fonts */
+	font-family: "Kiwi Maru", serif;
+	font-weight: 400;
+	font-style: normal;
 }
