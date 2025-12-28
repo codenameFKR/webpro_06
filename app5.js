@@ -405,12 +405,12 @@ let deco = [
   { id: 1, title: "ラビットホール", year: 2023, lm: "DECO*27", arrangement: "tepe", movie: "OTOIRO", url: "https://www.youtube.com/watch?v=eSW2LVbPThw" },
   { id: 2, title: "モニタリング", year: 2024, lm: "DECO*27", arrangement: "DECO*27 & Hayato Yamamoto", movie: "OTOIRO", url: "https://www.youtube.com/watch?v=kbNdx0yqbZE" },
   { id: 3, title: "ヴァンパイア", year: 2021, lm: "DECO*27", arrangement: "Rockwell", movie: "OTOIRO", url: "https://www.youtube.com/watch?v=e1xCOsgWG0M" },
-  { id: 4, title: "ヒバナ", year: 2017, lm: "DECO*27", arrangement: "Rockwell", movie: "八三", url: "https://www.youtube.com/watch?v=hxSg2loz3LM" },
+  { id: 4, title: "ヒバナ", year: 2017, lm: "DECO*27", arrangement: "Rockwell", movie: "八三", url: "https://www.youtube.com/watch?v=hxSg2Ioz3LM&t=1s" },
   { id: 5, title: "妄想感傷代償連盟", year: 2016, lm: "DECO*27", arrangement: "emon(Tes.)", movie: "檀上大空", url: "https://www.youtube.com/watch?v=8pGRdRhjX3o" },
   { id: 6, title: "乙女解剖", year: 2019, lm: "DECO*27", arrangement: "emon(Tes.) & Rockwell", movie: "OTOIRO", url: "https://www.youtube.com/watch?v=7zwCIz-Ohn4" },
   { id: 7, title: "ゴーストルール", year: 2016, lm: "DECO*27", arrangement: "Naoki Itai (MUSIC FOR MUSIC)", movie: "八三", url: "https://www.youtube.com/watch?v=KushW6zvazM" },
   { id: 8, title: "テレパシ", year: 2025, lm: "DECO*27", arrangement: "tepe", movie: "OTOIRO", url: "https://www.youtube.com/watch?v=c56TpxfO9q0" },
-  { id: 9, title: "モニタリング(Best Friend Remix)", year: 2025, lm: "DECO*27", arrangement: "DECO*27 & Hayato Yamamoto", movie: "OTOIRO", url: "https://www.youtube.com/watch?v=C-CYWnZ3z8w" },
+  { id: 9, title: "モニタリング(Best Friend Remix)", year: 2025, lm: "DECO*27", arrangement: "DECO*27 & Hayato Yamamoto", movie: "OTOIRO", url: "https://www.youtube.com/watch?v=C-CYwNz3z8w&list=RDC-CYwNz3z8w&start_radio=1" },
   { id: 10, title: "アニマル", year: 2021, lm: "DECO*27", arrangement: "Rockwell", movie: "OTOIRO", url: "https://www.youtube.com/watch?v=HtBqK6xsQ9k" }
 ];
 
